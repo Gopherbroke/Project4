@@ -1,7 +1,15 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root "pieces#index"
+  #root "pieces#index"
 
-  get "/pieces", to: "pieces#index", as: "pieces"
+  #get "/pieces", to: "pieces#index", as: "pieces"
+
+  #get "/users", to: "users#index", as: "users"
+
+  #get "/users/new", to: "users#new", as: "new_user"
+
+  resources :pieces, path: '/pieces'
+  resources :users, path: '/users'
+  resources :comments, path: '/comments'
 
 end
