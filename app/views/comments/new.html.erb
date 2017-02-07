@@ -1,0 +1,21 @@
+<h1>New Comment</h1>
+<%= form_for @comments, :url => url_for(:controller => 'comments_controller', :action => 'POST') %>
+
+  <article>
+    <%= f.label :user_id %>
+    <%= f.number_field :user_id %>
+  </article>
+
+  <article>
+    <%= f.label :piece_id %>
+    <%= f.number_field :piece_id %>
+  </article>
+
+  <article>
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </article>
+
+  <article>
+    <%= f.submit %>
+  </article>

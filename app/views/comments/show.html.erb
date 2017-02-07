@@ -1,0 +1,15 @@
+
+<article>
+
+    <h4><span class="author"> by <em><%= @user.user_id %></span></em></h4>
+    <h4><%= @comment.body %></h4>
+    <p>
+
+    <%= link_to 'Edit',   edit_piece_comment_path(@comment.piece_id, @comment.id) %>
+    <%= link_to 'Delete', [@comment.piece, @comment],
+                method: :delete,
+                data: { confirm: 'Are you sure?'} %>
+    </p>
+
+    <p>  <%= link_to "Back", piece_path(@comment.piece_id)  %>   </p>
+</article>

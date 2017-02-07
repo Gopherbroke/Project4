@@ -9,6 +9,11 @@
   </head>
 
   <body>
+
+    <% @pieces.each do |piece| %>
+      <%= piece.name %>
+
+      <% end %>
     <%= yield %>
   </body>
 </html>

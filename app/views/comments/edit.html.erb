@@ -1,0 +1,24 @@
+<h1>Comment Edit</h1>
+
+<%= form_for :comment do |f| %>
+
+  <article>
+    <%= f.label :user_id %>
+    <%= f.number_field :user_id %>
+  </article>
+
+  <article>
+    <%= f.label :piece_id %>
+    <%= f.number_field :piece_id %>
+  </article>
+
+  <article>
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </article>
+
+  <article>
+    <%= f.submit %>
+  </article>
+
+<% end %>

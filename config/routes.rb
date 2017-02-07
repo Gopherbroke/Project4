@@ -10,6 +10,10 @@ Rails.application.routes.draw do
 
   resources :pieces, path: '/pieces'
   resources :users, path: '/users'
-  resources :comments, path: '/comments'
+  #resources :comments, path: '/comments'
+
+  resources :pieces do
+  resources :comments
+end
 
 end
