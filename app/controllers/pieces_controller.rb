@@ -20,6 +20,6 @@ class PiecesController < ApplicationController
   private
     # Only allow a trusted parameter "white list" through.
     def piece_params
-      params.require(:piece).permit(:name, :type, :description, :price)
+      params.require(:piece).permit(:name, :type, :description, :price, :image_url)
     end
 end

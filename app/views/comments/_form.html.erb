@@ -1,0 +1,13 @@
+<%= form_for ([@piece, @comment]) do |f| %>
+
+
+  <article>
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </article>
+
+  <article>
+    <%= f.submit %>
+  </article>
+
+  <% end %>
