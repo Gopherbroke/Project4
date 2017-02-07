@@ -5,22 +5,23 @@ class CommentsController < ApplicationController
     #@comments = @piece.comments.order(created_at: :desc)
   end
 
+  def new
+    @comment = Comment.new
+  end
+
   def show
     @comment = Comment.find(params[:comment_id])
   end
 
-  def new
-    @comment = Comment.create(params[:id])
-  end
 
   def create
     @piece = Piece.find(params[:piece_id])
-    @comment = @piece.comments.create(comment_params)
+    @comment = @piece.comments.new(comment_params)
 
     if @comment.save
-    render "index", :alert => 'Your book was found!'
+      render "index", :alert => 'Your book was found!'
     else
-        render "index", :alert => 'Your book was not found!'
+      render "new", :alert => 'Your book was not found!'
     end
 
   end
@@ -43,7 +44,7 @@ class CommentsController < ApplicationController
 private
   # Only allow a trusted parameter "white list" through.
 def comment_params
-  params.require(:comment).permit(:body, :piece_id, :user_id)
+  params.require(:comment).permit(:body, :piece_id)
 end
 
 

@@ -1,5 +1,5 @@
 <h1>New Comment</h1>
-<%= form_for @comment, :url => url_for(:controller => 'comments_controller', :action => 'create') %>
+<%= form_for @comment, :url new_comment_path do |f| %>
 
   <article>
     <%= f.label :user_id %>
