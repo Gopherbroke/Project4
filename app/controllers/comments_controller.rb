@@ -31,11 +31,12 @@ class CommentsController < ApplicationController
 
   def edit
     @piece = Piece.find(params[:piece_id])
-    @comment = Comment.find(params[:id])
+    @comment = @piece.comments.find(params[:id])
   end
 
   def update
-    @comment = Comment.find(params[:id])
+    @piece = Piece.find(params[:piece_id])
+    @comment = @piece.comments.find(params[:id])
 
     if @comment.update(comment_params)
       redirect_to piece_comments_path
@@ -47,20 +48,15 @@ class CommentsController < ApplicationController
 
   def destroy
     @piece = Piece.find(params[:piece_id])
-    @comment = Comment.find(params[:id])
-
-    if @comment.destroy
-     redirect_to piece_comments_path
-    else
-     render 'root'
-    end
+    @comment = @piece.comments.destroy(params[:id])
+      redirect_to piece_path(@piece)
   end
 
 
 private
   # Only allow a trusted parameter "white list" through.
 def comment_params
-  params.require(:comment).permit(:id,:body, :piece_id)
+  params.require(:comment).permit(:body, :piece_id)
 end
 
 

@@ -1,5 +1,5 @@
 <h1>Here are your pieces</h1>
 
 <% @pieces.each do |piece| %>
-  <%= piece.name %>
+  <%= link_to piece.name, piece_path(piece) %>
 <% end %>
