@@ -48,7 +48,7 @@ class CommentsController < ApplicationController
     @comment = @piece.comments.find(params[:id])
 
     if @comment.update(comment_params)
-      redirect_to piece_path
+      redirect_to piece_path(@piece)
     else
       render "root"
     end
