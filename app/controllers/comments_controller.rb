@@ -23,12 +23,12 @@ class CommentsController < ApplicationController
 
 
   def create
-    @user = current_user
     @piece = Piece.find(params[:piece_id])
     @comment = @piece.comments.create(comment_params)
+    @comment.user_id = current_user.id
 
     if @comment.save
-      redirect_to piece_comments_path
+      redirect_to piece_path(@piece)
     else
       render "root"
     end
@@ -37,18 +37,18 @@ class CommentsController < ApplicationController
 
 
   def edit
-    @user = current_user
     @piece = Piece.find(params[:piece_id])
-    @comment = @piece.comments.find(params[:comment_id])
+    @comment = Comment.find(params[:id])
+    @comment.user_id = current_user.id
   end
 
   def update
-    @user = User.find(params[:user_id])
+    @comment.user_id = current_user.id
     @piece = Piece.find(params[:piece_id])
     @comment = @piece.comments.find(params[:id])
 
     if @comment.update(comment_params)
-      redirect_to piece_comments_path
+      redirect_to piece_path
     else
       render "root"
     end
