@@ -1,5 +1,7 @@
 <h1>Here are your pieces</h1>
-
 <% @pieces.each do |piece| %>
+<div class="home">
   <%= link_to piece.name, piece_path(piece) %>
+  <img class="one" src="<%= piece.image_url %>">
 <% end %>
+</div>
