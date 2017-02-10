@@ -3,19 +3,17 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+.tip {
+  padding: 1rem;
+}
+
 .one {
-max-width: 50rem;
+  border: .2rem solid rgb(163, 163, 194);
+  margin: -1rem auto;
+  height: 25rem;
+  width: 40rem;
 }
-
-.home {
-  display: inline;
-}
-
 
 .container {
   max-width: 1000px;
-}
-
-.slides {
-  width:100%
 }

@@ -1,31 +1,27 @@
-<h1>Piece Show</h1>
-
-<%= @piece.name %>
-<%= @piece.description %>
 <%= link_to 'Home', pieces_path %>
+<main class="container">
+  <h1> <%= @piece.name %> </h1>
+  <section>
+    <img class="one" src="<%= @piece.image_url %>">
+  </section>
+
+  <section class="tip"><h4>Style: <%= @piece.style %> </h4></section>
+  <section class="tip"><h4>Description: <%= @piece.description %> </h4></section>
 
 
-<br>
-<p>
-  <% @piece.comments.each do |comment| %>
-  <div>
-  <%= link_to comment.body, piece_comment_path(@piece, comment.id) %>
-  </div>
-<% end %>
-</p>
-<br>
-
-<%= form_for ([@piece, @piece.comments.build]) do |f| %>
-
-
-  <article>
-    <h3>Leave A Comment</h3>
-    <%= f.label :body %>
-    <%= f.text_area :body %>
-  </article>
-
-  <article>
-    <%= f.submit %>
-  </article>
-
-  <% end %>
+    <% @piece.comments.each do |comment| %>
+    <div>
+    <%= link_to comment.body, piece_comment_path(@piece, comment.id) %>
+    </div>
+    <% end %>
+    </p>
+    <%= form_for ([@piece, @piece.comments.build]) do |f| %>
+      <article>
+        <h3>Leave A Comment</h3>
+        <%= f.label :body %>
+        <%= f.text_area :body %>
+      </article>
+      <article>
+        <%= f.submit %>
+      </article>
+      <% end %>
