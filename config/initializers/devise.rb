@@ -9,7 +9,7 @@ Devise.setup do |config|
   # config.secret_key = '0487f137e37e2e04ee60d0afaaec14f726651612812fb7033f750a4ba2cb709b562f6363f0c0c076da57d2352a5fcf4cb4f8d0c0732966c5bf00412dcb8888fe'
 
   config.omniauth :facebook, "1909512009269905", "f32d6a2192254f5db80a8835f870323c",
-                  
+                  callback_url: "https://artfolio.herokuapp.com/users/auth/facebook"
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
