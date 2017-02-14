@@ -13,4 +13,15 @@
  *= require_tree .
  *= require_self
  */
- 
+
+ .item {
+   max-height: 10rem;
+   max-width: 10rem;
+   display: inline-block;
+ }
+
+ .active {
+   height: 10rem;
+   width: 10rem;
+   display: inline;
+ }
